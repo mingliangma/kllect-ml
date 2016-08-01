@@ -60,7 +60,7 @@ The expected result should be:
     | `data`   | Y | A **list** containing all the input videos for classification. Each element in the `data` list needs to be in a certain form. Details see below.|
 
 
-  Each element in the `data` parameter needs to be of the following `JSON` format:
+  - **`data` parameter format:** Each element in the `data` parameter needs to be of the following `JSON` format:
 
     | Parameter | Required | Description |
     | :--------- | :---------: | ----------- |
@@ -68,18 +68,18 @@ The expected result should be:
     | `title`   | N | The **title** of the video. |
     | `description` | N | The **description** of the video. |
     | `extraction_method`   | N | The **extraction_method** of the video, in the same sense as the `extraction_method` field in the MongoDB, such as `search_by_funny`. |
-    | `raw_tags` | N | The list of **raw tags** of the video as gathered from Youtube. |
+    | `raw_tags` | N | The list of **raw tags** of the video as gathered from Youtube.|
 
     
-    - **Response format:** `JSON`
-    - **Response:**
+  - **Response format:** `JSON`
+  - **Response:**
     
     | Parameter | Description |
-    | :--------- | :--------- |
+    | :---------| :--------- |
     | `results` | The list of prediction results returned. Each element in the `results` list would be in a certain form. Details see below.|
 
 
-  Each element in the `results` parameter will be of the following `JSON` format:
+  - **`results` parameter format:** Each element in the `results` parameter will be of the following `JSON` format:
 
     | Parameter | Description |
     | :--------- | :--------- |
