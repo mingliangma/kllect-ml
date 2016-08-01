@@ -7,7 +7,7 @@ This repository currently contains the Docker files, source code, and data for t
 ## Content
 * [Docker building instructions] (#docker-building-instructions)
 * [Test if the APIs work properly] (#test-if-the-apis-work-properly)
-* [How to use the API] (#use-cases-and-api-calls)
+* [How to use the API] (#how-to-use-the-api)
 
 
 ## Docker building instructions
