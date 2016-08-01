@@ -31,7 +31,7 @@ If everything works out right, run the following command to launch the container
 * Run a RESTful API test:
   
    ```
-   curl -H "Content-Type: application/json" -X POST -d '{"category":"Technology", "data":[{"id":1, "title":"Apple new gadget","description":"Watch out for this newest and coolest Apple watch"}]}' http://localhost:5011/content_classification
+   curl -H "Content-Type: application/json" -X POST -d '{"category":"Technology", "data":[{"id":1, "title":"Thinnest Smartphone In The World! (Vivo X5 Max)", "description":"Unboxing and overview of the thinnest smartphone in the world in the Vivo X5 Max. This phone measures in at just 4.75mm thick, beating out the Oppo R5 (4.85mm) for the title of world’s thinnest phone. Places I hang out: Facebook: http://www.facebook.com/phonebuff Google+: http://www.google.com/+PhoneBuff Instagram: http://instagram.com/phonebuff Twitter: http://twitter.com/phonebuff", "extraction_method":"search_smartphone", "raw_tags":["thinnest phone", "vivo x5 max", "vivo", "x5 max", "thinnest phone in the world", "phonebuff"]}]}' http://localhost:5011/content_classification
    ```
 
 The expected result should be:
@@ -67,7 +67,7 @@ The expected result should be:
     | `id`     | Y | The **identifier** of the video, will be returned as part of the response. This ID won't be used to link any external data source, only for the purpose of identifying the document being requested. |
     | `title`   | N | The **title** of the video. |
     | `description` | N | The **description** of the video. |
-    | `extraction_method`   | N | The **extraction_method** of the video, in the same sense as the `extraction_method` field in the MongoDB, such as `search_by_funny`. |
+    | `extraction_method`   | N | The **extraction_method** of the video, in the same sense as the `extraction_method` field in the MongoDB, such as `search_funny`. |
     | `raw_tags` | N | The list of **raw tags** of the video as gathered from Youtube.|
 
     

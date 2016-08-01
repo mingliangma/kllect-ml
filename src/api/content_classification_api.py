@@ -58,3 +58,4 @@ def classify_video_contents():
     except Exception, e:
         #traceback.print_exc()
         return json_response(error = 'Unable to make predictions.', status_=500)
+
