@@ -24,7 +24,9 @@ If everything works out right, run the following command to launch the container
 ## Test if the APIs work properly
 * Run a RESTful API test:
   
-    `curl -H "Content-Type: application/json" -X POST -d '{"category":"Technology", "data":[{"id":1, "title":"Apple new gadget","description":"Watch out for this newest and coolest Apple watch"}]}' http://localhost:5011/content_classification`
+   ```
+   curl -H "Content-Type: application/json" -X POST -d '{"category":"Technology", "data":[{"id":1, "title":"Apple new gadget","description":"Watch out for this newest and coolest Apple watch"}]}' http://localhost:5011/content_classification
+   ```
 
 The expected result should be:
    ```json
