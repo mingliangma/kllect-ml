@@ -1,0 +1,16 @@
+FROM kllect:python_img
+MAINTAINER Vanessa Feng <vanessa.w.feng@gmail.com>
+
+
+
+COPY ./requirements.txt /app
+RUN cd /app && pip install -r requirements.txt
+RUN pip install supervisor
+RUN pip install gunicorn
+RUN pip install requests
+
+RUN pip install unidecode
+RUN python -m nltk.downloader stopwords
+RUN python -m nltk.downloader punkt
+RUN pip install flask-cors
+RUN pip install flask-json
