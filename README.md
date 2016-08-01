@@ -53,6 +53,7 @@ The expected result should be:
   - **Method:** `POST`
   - **Request format:** `JSON`
   - **Request parameters:**
+
     | Parameter | Required | Description |
     | :--------- | :---------: | ----------- |
     | `category`     | Y | The **first-level category** of the video. Currently, only `Technology` category is supported. |
@@ -79,6 +80,7 @@ The expected result should be:
 
 
   Each element in the `results` parameter will be of the following `JSON` format:
+
     | Parameter | Description |
     | :--------- | :--------- |
     | `id` | The **identifier** of the video, will be returned as part of the response. This would be used to identify each video in the request. Note, in the case where some input videos are not in the valid format, as specified in the `data` parameter part, those videos will not be present in the response, i.e., their `id`s are missing in the response. Also, the order of the videos in the response is not guaranteed to be the same as in the request. |
