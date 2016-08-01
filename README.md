@@ -41,7 +41,7 @@ The expected result should be:
        {
            "id": 1, 
            "predictions": [
-              "Others"
+              "Smartphones"
             ]
     	}]
     }
