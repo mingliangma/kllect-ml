@@ -21,7 +21,7 @@ class TechologyClassifier(BaseClassifier):
     FEATURE_FIELDS = [
         TITLE_FIELD,
         DESCRIPTION_FIELD,
-        EXTRACTION_METHOD_FIELD,
+        #EXTRACTION_METHOD_FIELD,
         RAW_TAG_FIELD
     ]
 
@@ -60,7 +60,7 @@ class TechologyClassifier(BaseClassifier):
 
         tfidf_description = self._transform_field(data_df, tag, TechologyClassifier.DESCRIPTION_FIELD)
 
-        tfidf_extraction_method = self._transform_field(data_df, tag, TechologyClassifier.EXTRACTION_METHOD_FIELD)
+        #tfidf_extraction_method = self._transform_field(data_df, tag, TechologyClassifier.EXTRACTION_METHOD_FIELD)
 
         tfidf_raw_tag = self._transform_field(data_df, tag, TechologyClassifier.RAW_TAG_FIELD)
 
@@ -70,7 +70,8 @@ class TechologyClassifier(BaseClassifier):
         w4 = 1
 
         matrix = scipy.sparse.hstack(
-            [w1 * tfidf_title, w2 * tfidf_description, w3 * tfidf_extraction_method, w4 * tfidf_raw_tag])
+            [w1 * tfidf_title, w2 * tfidf_description, #w3 * tfidf_extraction_method, 
+             w4 * tfidf_raw_tag])
 
         #print matrix
         test_data = normalize(matrix, norm='l2', axis=1)
