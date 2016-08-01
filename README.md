@@ -4,6 +4,12 @@
 This repository currently contains the Docker files, source code, and data for the `Video Content Classification` microservice. The service now supports the second-level tag classification for `Technology` videos.
 
 
+## Content
+* [Docker building instructions] (#docker-building-instructions)
+* [Test if the APIs work properly] (#test-if-the-apis-work-properly)
+* [How to use the API] (#use-cases-and-api-calls)
+
+
 ## Docker building instructions
 
 In the current folder:
@@ -42,7 +48,7 @@ The expected result should be:
    ```
 
 
-## How to use this API for content classification
+## How to use the API
   - **URL:** `http://{Your host's IP address}:5011/content_classification`
   - **Method:** `POST`
   - **Request format:** `JSON`
