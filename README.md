@@ -14,7 +14,7 @@ This repository currently contains the Docker files, source code, and data for t
 
 In the current folder:
 
-1. `docker build -t kllect:python_image -f Dockerfile-image .` (don't forget the last period)
+1. `docker build -t kllect:python_img -f Dockerfile-image .` (don't forget the last period)
 2. `docker build -t kllect:python_pkgs -f Dockerfile-pkgs .`
 3. `docker build -t kllect:python_code -f Dockerfile-code .`
 4. `docker build -t kllect:video_content_classification -f Dockerfile-deploy .`
