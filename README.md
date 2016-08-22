@@ -97,7 +97,7 @@ The expected result should be:
 
 
 ## How to use the API
-1. How to use the Category Classification API
+### How to use the Category Classification API
   - **URL:** `http://{Your host's IP address}:5011/category_classification`
   - **Method:** `POST`
   - **Request format:** `JSON`
@@ -134,7 +134,7 @@ The expected result should be:
     | `categories` | The list of predicted **categories** of the video. |
 
 
-2. How to use the Tag Classification API
+### How to use the Tag Classification API
   - **URL:** `http://{Your host's IP address}:5011/tag_classification`
   - **Method:** `POST`
   - **Request format:** `JSON`
@@ -162,7 +162,7 @@ The expected result should be:
     | `tags` | The list of predicted **tags** of the video. |
 
 
-3. How to use the Full Classification API
+### How to use the Full Classification API
   - **URL:** `http://{Your host's IP address}:5011/full_classification`
   - **Method:** `POST`
   - **Request format:** `JSON`
