@@ -28,7 +28,7 @@ In the current folder:
 
 If everything works out right, run the following command to launch the container. Let's map the container's exposed port to the same port on the host.
 
-        docker run -p :5011:5011 -t kllect:video_content_classification
+        docker run -p :5011:5011 -t kllect:video_content_classification --name kllect-ml
 
 
 
