@@ -10,7 +10,7 @@ This repository currently contains the Docker files, source code, and data for t
 ## Content
 * [Docker building instructions] (#docker-building-instructions)
 * [Test if the APIs work properly] (#test-if-the-apis-work-properly)
-* [How to use the API] 
+* How to use the API
   1. [How to use the Category Classifcation API] (#how-to-use-the-category-classification-api)
   2. [How to use the Tag Classifcation API] (#how-to-use-the-tag-classification-api)
   3. [How to use the Full Classifcation API] (#how-to-use-the-full-classification-api)
