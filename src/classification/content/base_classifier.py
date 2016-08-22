@@ -11,19 +11,21 @@ class BaseClassifier(object):
     def __init__(self, content_category,
                  content_tags,
                  feature_fields,
-                 model_dir,
+                 model_subdir,
                  prob_thresholds = None,
                  debug = False,
                  return_most_likely_prediction = False,
-                 default_return = None):
+                 default_return = None,
+                 id_field = 'id',
+                 predictions_field = 'content_tags'):
         self.content_category = content_category
         self.content_tags = content_tags
         self.feature_fields = feature_fields
-        self.model_dir = model_dir
+        self.model_dir = model_subdir
         self.classifiers = {}
         self.vectorizers = {}
-        self.id_field = 'id'
-        self.predictions_field = 'predictions'
+        self.id_field = id_field
+        self.predictions_field = predictions_field
 
         self.prob_thresholds = {tag : 0.50 for tag in self.content_tags}
         if prob_thresholds:
@@ -156,5 +158,7 @@ class BaseClassifier(object):
 
         #print clean_data
         transformed_data = self._transform_data(clean_data)
+        # for data in transformed_data:
+        #     print data
 
         return self._predict_transformed_data(transformed_data)

@@ -17,4 +17,3 @@ labels = {
         'Ecommerce' : 0.35
     }
 }
-

@@ -1,6 +1,5 @@
 from base_classifier import BaseClassifier
 from labels import labels
-import numpy as np
 import scipy
 
 from sklearn.preprocessing import normalize
@@ -26,19 +25,22 @@ class TechologyClassifier(BaseClassifier):
     ]
 
     def __init__(self, model_subdir,
-                 prob_thresholds = None,
                  debug = False,
                  return_most_likely_prediction = False,
-                 default_return = None):
+                 default_return = None,
+                 id_field = 'id',
+                 predictions_field = 'content_tags'):
         BaseClassifier.__init__(self,
                                 content_category=TechologyClassifier.CONTENT_CATEGORY,
                                 content_tags=TechologyClassifier.CONTENT_TAGS,
                                 feature_fields=TechologyClassifier.FEATURE_FIELDS,
-                                model_dir=model_subdir,
+                                model_subdir=model_subdir,
                                 prob_thresholds=TechologyClassifier.PROB_THRESHOLDS,
                                 debug=debug,
                                 return_most_likely_prediction=return_most_likely_prediction,
-                                default_return=default_return
+                                default_return=default_return,
+                                id_field=id_field,
+                                predictions_field=predictions_field
                                 )
 
         # for feature in self.vectorizers['Smartphones'][TechologyClassifier.TITLE_FIELD].get_feature_names():
@@ -70,19 +72,18 @@ class TechologyClassifier(BaseClassifier):
         w4 = 1
 
         matrix = scipy.sparse.hstack(
-            [w1 * tfidf_title, w2 * tfidf_description, #w3 * tfidf_extraction_method, 
-             w4 * tfidf_raw_tag])
-
-        #print matrix
-        test_data = normalize(matrix, norm='l2', axis=1)
+            [w1 * tfidf_title, w2 * tfidf_description, #w3 * tfidf_extraction_method,
+             w4 * tfidf_raw_tag]).tocsr()
 
         tag_classifier = self.classifiers[tag]
-        predicted_probs = tag_classifier.predict_proba(test_data)[ : , 1]
+        predicted_probs = tag_classifier.predict_proba(matrix)[ : , 1]
 
         return predicted_probs
 
     def _transform_data(self, data):
         for d in data:
+            #print d
+
             for field in TechologyClassifier.FEATURE_FIELDS:
                 raw_field_data = d[field] if field in d else None
 
