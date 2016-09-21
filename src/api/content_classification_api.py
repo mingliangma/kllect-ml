@@ -157,20 +157,41 @@ def classify_video_categories_and_contents():
 
             category_predictions = id2topic[d_id]
 
-            pred = {category : [] for category in category_predictions}
+            r = {
+                t.ID_FIELD: d_id,
+                t.SINGLE_CATEGORY_FIELD: None,
+                t.CONTENT_TAG_PREDICTIONS_FIELD: []
+            }
 
-            if d_id in id2tags:
-                category2tags = id2tags[d_id]
+            if len(category_predictions):
+                category = category_predictions[0]
 
-                for category in category2tags:
-                    pred[category] = category2tags[category]
+                if d_id in id2tags:
+                    category2tags = id2tags[d_id]
+                    tags = category2tags[category]
+                else:
+                    tags = []
 
-            result.append({
-                t.ID_FIELD : d_id,
-                t.FULL_PREDICTIONS_FIELD : [{t.SINGLE_CATEGORY_FIELD : x,
-                                             t.CONTENT_TAG_PREDICTIONS_FIELD : pred[x]}
-                                            for x in pred]
-            })
+                r[t.SINGLE_CATEGORY_FIELD] = category
+                r[t.CONTENT_TAG_PREDICTIONS_FIELD] = tags
+
+
+            # pred = {category : [] for category in category_predictions}
+            #
+            # if d_id in id2tags:
+            #     category2tags = id2tags[d_id]
+            #
+            #     for category in category2tags:
+            #         pred[category] = category2tags[category]
+            #
+            #
+            #
+            # result.append({
+            #     t.ID_FIELD : d_id,
+            #     t.FULL_PREDICTIONS_FIELD : [{t.SINGLE_CATEGORY_FIELD : x,
+            #                                  t.CONTENT_TAG_PREDICTIONS_FIELD : pred[x]}
+            #                                 for x in pred]
+            # })
 
         return json_response(results = result, status_=200)
     except Exception, e:
