@@ -175,7 +175,8 @@ def classify_video_categories_and_contents():
                 r[t.SINGLE_CATEGORY_FIELD] = category
                 r[t.CONTENT_TAG_PREDICTIONS_FIELD] = tags
 
-
+            result.append(r)
+            
             # pred = {category : [] for category in category_predictions}
             #
             # if d_id in id2tags:
