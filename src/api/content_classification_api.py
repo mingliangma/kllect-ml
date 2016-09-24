@@ -65,17 +65,17 @@ def classify_video_categories():
 
 @app.route('/' + CONTENT_CLASSIFICATION_ROUTE, methods = ['POST'])
 def classify_video_contents():
-    #print request
+    print request
     request_body = {}
     try:
         request_body = request.get_json()
-        #print request_body
+        print request_body
 
     except Exception, e:
         #traceback.print_exc()
         return json_response({'error' : 'Cannot parse the input json request.'})
 
-    #print request_body
+    print request_body
 
     category = parse_request_params(request_body, argument=t.INPUT_CATEGORY_FIELD, default=None)
     allowed_categories = content_tags.keys()
@@ -96,17 +96,17 @@ def classify_video_contents():
 
 @app.route('/' + FULL_CLASSIFICATION_ROUTE, methods = ['POST'])
 def classify_video_categories_and_contents():
-    #print request
+    print request
     request_body = {}
     try:
         request_body = request.get_json()
-        #print request_body
+        print request_body
 
     except Exception, e:
         #traceback.print_exc()
         return json_response({'error' : 'Cannot parse the input json request.'})
 
-    #print request_body
+    print request_body
 
     allowed_categories = content_tags.keys()
 
@@ -176,7 +176,7 @@ def classify_video_categories_and_contents():
                 r[t.CONTENT_TAG_PREDICTIONS_FIELD] = tags
 
             result.append(r)
-            
+
             # pred = {category : [] for category in category_predictions}
             #
             # if d_id in id2tags:
