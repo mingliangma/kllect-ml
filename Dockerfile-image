@@ -35,3 +35,34 @@ RUN apt-get install -y python \
 RUN useradd -d /app -m app
 RUN chown -R app:app /app/
 
+
+COPY ./requirements.txt /app
+RUN cd /app && pip install -r requirements.txt
+RUN pip install supervisor
+RUN pip install gunicorn
+RUN pip install requests
+
+RUN pip install unidecode
+RUN python -m nltk.downloader stopwords
+RUN python -m nltk.downloader punkt
+RUN pip install flask-cors
+RUN pip install flask-json
+
+# copy over app and data
+COPY . /app
+
+# copy over config
+COPY ./config /app/config
+RUN chown -R app:app /app/
+
+
+# Deploy service configuration
+RUN cp /app/config/supervisord/supervisord.conf /etc/
+RUN mkdir -p /etc/supervisord/conf.d/
+RUN cp /app/config/supervisord/apps.conf /etc/supervisord/conf.d/
+
+#Expose ports and start supervisord
+EXPOSE 5011
+CMD ["supervisord", "-n"]
+#WORKDIR /app/src
+#CMD ["python", "main.py"]
