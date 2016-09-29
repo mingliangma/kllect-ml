@@ -1,6 +1,0 @@
-FROM kllect:python_pkgs
-MAINTAINER Vanessa Feng <vanessa.w.feng@gmail.com>
-
-# copy over app and data
-COPY . /app
-
