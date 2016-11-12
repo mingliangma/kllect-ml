@@ -1,0 +1,7 @@
+1. Invalid manual-labelled video IDs. The supplied label(s) in MongoDB does not belong to the designed sub-categories. Please revise these labels. Otherwise, HITs using one of these sample as the "qualification" question have to be excluded from the remaining analysis.
+  1) 5758f41751ac842181db73b3
+  2) 5758f41751ac842181db73b6
+  3) 5758f41751ac842181db73b9
+  4) 5758f41851ac842181db73bf
+  
+2. Excluding the HITs including the invalid manual-labelled videos, we have 45 valid HITs (5 HITs include one of the 4 invalid videos as the "qualification" question).

@@ -1,0 +1,40 @@
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.98      0.99      0.98       530
+          1       0.94      0.87      0.91        93
+
+avg / total       0.97      0.97      0.97       623
+
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       530
+          1       0.95      0.96      0.95        93
+
+avg / total       0.99      0.99      0.99       623
+
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.98      0.99      0.99       530
+          1       0.97      0.89      0.93        93
+
+avg / total       0.98      0.98      0.98       623
+
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.98      0.99      0.99       530
+          1       0.95      0.88      0.92        93
+
+avg / total       0.98      0.98      0.98       623
+
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.98      0.97      0.97       530
+          1       0.83      0.87      0.85        92
+
+avg / total       0.96      0.95      0.96       622
+

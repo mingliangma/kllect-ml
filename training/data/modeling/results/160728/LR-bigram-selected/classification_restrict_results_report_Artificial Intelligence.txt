@@ -1,0 +1,40 @@
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      1.00       584
+          1       1.00      0.90      0.95        40
+
+avg / total       0.99      0.99      0.99       624
+
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       584
+          1       0.94      0.85      0.89        40
+
+avg / total       0.99      0.99      0.99       624
+
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       583
+          1       0.97      0.97      0.97        39
+
+avg / total       1.00      1.00      1.00       622
+
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       583
+          1       1.00      0.95      0.97        39
+
+avg / total       1.00      1.00      1.00       622
+
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      1.00       583
+          1       0.93      0.97      0.95        39
+
+avg / total       0.99      0.99      0.99       622
+

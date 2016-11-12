@@ -1,0 +1,76 @@
+LABEL	POS_CNT	ACCURACY	PRECISION	RECALL	F1
+Others	47	0.978	0.000	0.000	0.000
+Others	47	0.973	0.111	0.100	0.105
+Others	47	0.976	0.125	0.111	0.118
+Others	47	0.979	0.250	0.222	0.235
+Others	47	0.974	0.000	0.000	0.000
+BioTech	185	0.979	0.773	0.919	0.840
+BioTech	185	0.992	0.921	0.946	0.933
+BioTech	185	0.986	0.938	0.811	0.870
+BioTech	185	0.974	0.839	0.703	0.765
+BioTech	185	0.987	0.854	0.946	0.897
+Smartphones	198	0.952	0.593	0.800	0.681
+Smartphones	198	0.947	0.571	0.700	0.629
+Smartphones	198	0.968	0.750	0.750	0.750
+Smartphones	198	0.963	0.682	0.769	0.723
+Smartphones	198	0.949	0.733	0.282	0.407
+Internet of Things	102	0.995	0.875	1.000	0.933
+Internet of Things	102	0.986	0.773	0.810	0.791
+Internet of Things	102	0.990	0.889	0.800	0.842
+Internet of Things	102	0.994	0.833	1.000	0.909
+Internet of Things	102	0.989	0.882	0.750	0.811
+Social Networks	464	0.973	0.942	0.871	0.905
+Social Networks	464	0.986	0.947	0.957	0.952
+Social Networks	464	0.979	0.965	0.892	0.927
+Social Networks	464	0.976	0.953	0.882	0.916
+Social Networks	464	0.955	0.833	0.870	0.851
+Battery	63	0.987	0.632	0.923	0.750
+Battery	63	0.987	0.632	0.923	0.750
+Battery	63	0.997	1.000	0.846	0.917
+Battery	63	0.987	0.643	0.750	0.692
+Battery	63	0.992	0.733	0.917	0.815
+Driverless Cars	134	1.000	1.000	1.000	1.000
+Driverless Cars	134	0.995	0.900	1.000	0.947
+Driverless Cars	134	0.995	0.962	0.926	0.943
+Driverless Cars	134	0.997	1.000	0.926	0.962
+Driverless Cars	134	1.000	1.000	1.000	1.000
+Wearable Tech	219	0.981	0.921	0.795	0.854
+Wearable Tech	219	0.974	0.769	0.909	0.833
+Wearable Tech	219	0.966	0.725	0.841	0.779
+Wearable Tech	219	0.973	0.909	0.682	0.779
+Wearable Tech	219	0.981	0.860	0.860	0.860
+Virtual Reality and Augmented Reality	88	0.974	0.556	0.556	0.556
+Virtual Reality and Augmented Reality	88	0.974	0.536	0.833	0.652
+Virtual Reality and Augmented Reality	88	0.979	0.600	0.833	0.698
+Virtual Reality and Augmented Reality	88	0.976	0.536	0.882	0.667
+Virtual Reality and Augmented Reality	88	0.955	0.378	1.000	0.548
+Drone	145	0.981	0.707	1.000	0.829
+Drone	145	0.974	0.676	0.862	0.758
+Drone	145	0.986	0.833	0.862	0.847
+Drone	145	0.989	0.824	0.966	0.889
+Drone	145	0.984	0.757	0.966	0.848
+NanoTech	155	0.990	0.838	1.000	0.912
+NanoTech	155	0.984	0.800	0.903	0.848
+NanoTech	155	0.990	0.838	1.000	0.912
+NanoTech	155	0.990	0.857	0.968	0.909
+NanoTech	155	0.986	0.844	0.871	0.857
+Manufacturing	150	0.984	0.812	0.867	0.839
+Manufacturing	150	0.952	0.500	0.800	0.615
+Manufacturing	150	0.933	0.375	0.600	0.462
+Manufacturing	150	0.950	0.492	0.967	0.652
+Manufacturing	150	0.941	0.443	0.900	0.593
+Ecommerce	204	0.995	0.952	0.976	0.964
+Ecommerce	204	0.986	0.944	0.829	0.883
+Ecommerce	204	0.989	0.972	0.854	0.909
+Ecommerce	204	0.989	0.925	0.902	0.914
+Ecommerce	204	0.997	1.000	0.950	0.974
+Artificial Intelligence	197	0.994	1.000	0.900	0.947
+Artificial Intelligence	197	0.987	0.944	0.850	0.895
+Artificial Intelligence	197	0.997	0.974	0.974	0.974
+Artificial Intelligence	197	0.997	1.000	0.949	0.974
+Artificial Intelligence	197	0.994	0.927	0.974	0.950
+Computer Science	5	0.998	0.000	0.000	0.000
+Computer Science	5	0.998	0.000	0.000	0.000
+Computer Science	5	0.998	0.000	0.000	0.000
+Computer Science	5	0.998	0.000	0.000	0.000
+Computer Science	5	0.998	0.000	0.000	0.000

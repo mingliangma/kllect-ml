@@ -1,0 +1,1 @@
+loadHITs -input D:\Codes\Kllect\data\mturk\batch_2\data_0.input  -question D:\Codes\Kllect\data\mturk\batch_2\video.question -properties D:\Codes\Kllect\data\mturk\batch_2\videoSandBox.properties

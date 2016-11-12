@@ -1,0 +1,40 @@
+NanoTech
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      0.99       592
+          1       0.84      1.00      0.91        31
+
+avg / total       0.99      0.99      0.99       623
+
+NanoTech
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       592
+          1       0.80      0.90      0.85        31
+
+avg / total       0.99      0.98      0.98       623
+
+NanoTech
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      0.99       592
+          1       0.84      1.00      0.91        31
+
+avg / total       0.99      0.99      0.99       623
+
+NanoTech
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      0.99       592
+          1       0.86      0.97      0.91        31
+
+avg / total       0.99      0.99      0.99       623
+
+NanoTech
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       591
+          1       0.84      0.87      0.86        31
+
+avg / total       0.99      0.99      0.99       622
+

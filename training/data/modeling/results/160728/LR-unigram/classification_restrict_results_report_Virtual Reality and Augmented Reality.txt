@@ -1,0 +1,40 @@
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       606
+          1       0.56      0.56      0.56        18
+
+avg / total       0.97      0.97      0.97       624
+
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       0.99      0.98      0.99       605
+          1       0.56      0.83      0.67        18
+
+avg / total       0.98      0.98      0.98       623
+
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       0.99      0.98      0.99       605
+          1       0.60      0.83      0.70        18
+
+avg / total       0.98      0.98      0.98       623
+
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       1.00      0.98      0.99       605
+          1       0.54      0.88      0.67        17
+
+avg / total       0.98      0.98      0.98       622
+
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       1.00      0.95      0.98       605
+          1       0.38      1.00      0.55        17
+
+avg / total       0.98      0.95      0.96       622
+

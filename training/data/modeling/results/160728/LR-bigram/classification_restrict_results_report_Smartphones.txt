@@ -1,0 +1,40 @@
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.99      0.96      0.97       584
+          1       0.59      0.80      0.68        40
+
+avg / total       0.96      0.95      0.96       624
+
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.98      0.96      0.97       583
+          1       0.57      0.70      0.63        40
+
+avg / total       0.95      0.95      0.95       623
+
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.98      0.98      0.98       583
+          1       0.75      0.75      0.75        40
+
+avg / total       0.97      0.97      0.97       623
+
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.98      0.98      0.98       583
+          1       0.68      0.77      0.72        39
+
+avg / total       0.97      0.96      0.96       622
+
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.95      0.99      0.97       583
+          1       0.73      0.28      0.41        39
+
+avg / total       0.94      0.95      0.94       622
+

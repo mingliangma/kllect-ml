@@ -1,0 +1,40 @@
+Drone
+             precision    recall  f1-score   support
+
+          0       1.00      0.98      0.99       594
+          1       0.71      1.00      0.83        29
+
+avg / total       0.99      0.98      0.98       623
+
+Drone
+             precision    recall  f1-score   support
+
+          0       0.99      0.98      0.99       594
+          1       0.68      0.86      0.76        29
+
+avg / total       0.98      0.97      0.98       623
+
+Drone
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       594
+          1       0.83      0.86      0.85        29
+
+avg / total       0.99      0.99      0.99       623
+
+Drone
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      0.99       594
+          1       0.82      0.97      0.89        29
+
+avg / total       0.99      0.99      0.99       623
+
+Drone
+             precision    recall  f1-score   support
+
+          0       1.00      0.98      0.99       593
+          1       0.76      0.97      0.85        29
+
+avg / total       0.99      0.98      0.98       622
+

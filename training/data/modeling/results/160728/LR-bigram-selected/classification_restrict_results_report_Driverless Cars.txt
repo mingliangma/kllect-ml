@@ -1,0 +1,40 @@
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       596
+          1       1.00      1.00      1.00        27
+
+avg / total       1.00      1.00      1.00       623
+
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      1.00       596
+          1       0.90      1.00      0.95        27
+
+avg / total       1.00      1.00      1.00       623
+
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       596
+          1       0.96      0.93      0.94        27
+
+avg / total       1.00      1.00      1.00       623
+
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       596
+          1       1.00      0.93      0.96        27
+
+avg / total       1.00      1.00      1.00       623
+
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       596
+          1       1.00      1.00      1.00        26
+
+avg / total       1.00      1.00      1.00       622
+

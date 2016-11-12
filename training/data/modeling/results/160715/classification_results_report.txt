@@ -1,0 +1,640 @@
+Others
+             precision    recall  f1-score   support
+
+          0       1.00      0.96      0.98       643
+          1       0.18      0.67      0.28         9
+
+avg / total       0.98      0.95      0.97       652
+
+Others
+             precision    recall  f1-score   support
+
+          0       1.00      0.86      0.92       642
+          1       0.07      0.78      0.13         9
+
+avg / total       0.98      0.86      0.91       651
+
+Others
+             precision    recall  f1-score   support
+
+          0       0.99      0.93      0.96       642
+          1       0.09      0.44      0.14         9
+
+avg / total       0.98      0.93      0.95       651
+
+Others
+             precision    recall  f1-score   support
+
+          0       0.99      0.90      0.95       642
+          1       0.08      0.56      0.13         9
+
+avg / total       0.98      0.90      0.94       651
+
+Others
+             precision    recall  f1-score   support
+
+          0       0.99      0.92      0.95       642
+          1       0.06      0.33      0.10         9
+
+avg / total       0.98      0.91      0.94       651
+
+Manufacturing
+             precision    recall  f1-score   support
+
+          0       0.97      0.97      0.97       543
+          1       0.79      0.79      0.79        77
+
+avg / total       0.95      0.95      0.95       620
+
+Manufacturing
+             precision    recall  f1-score   support
+
+          0       0.97      0.89      0.93       542
+          1       0.51      0.79      0.62        77
+
+avg / total       0.91      0.88      0.89       619
+
+Manufacturing
+             precision    recall  f1-score   support
+
+          0       0.96      0.92      0.94       542
+          1       0.55      0.74      0.63        76
+
+avg / total       0.91      0.89      0.90       618
+
+Manufacturing
+             precision    recall  f1-score   support
+
+          0       0.96      0.86      0.91       542
+          1       0.43      0.74      0.54        76
+
+avg / total       0.89      0.85      0.86       618
+
+Manufacturing
+             precision    recall  f1-score   support
+
+          0       0.97      0.94      0.95       542
+          1       0.64      0.83      0.72        76
+
+avg / total       0.93      0.92      0.93       618
+
+NanoTech
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       611
+          1       0.86      0.86      0.86        37
+
+avg / total       0.98      0.98      0.98       648
+
+NanoTech
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       611
+          1       0.95      1.00      0.97        37
+
+avg / total       1.00      1.00      1.00       648
+
+NanoTech
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       611
+          1       0.91      0.84      0.87        37
+
+avg / total       0.99      0.99      0.99       648
+
+NanoTech
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       610
+          1       0.89      0.89      0.89        36
+
+avg / total       0.99      0.99      0.99       646
+
+NanoTech
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      1.00       610
+          1       0.97      0.89      0.93        36
+
+avg / total       0.99      0.99      0.99       646
+
+Drone
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       607
+          1       0.83      0.87      0.85        39
+
+avg / total       0.98      0.98      0.98       646
+
+Drone
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       607
+          1       0.91      0.77      0.83        39
+
+avg / total       0.98      0.98      0.98       646
+
+Drone
+             precision    recall  f1-score   support
+
+          0       0.99      0.98      0.99       607
+          1       0.78      0.92      0.84        38
+
+avg / total       0.98      0.98      0.98       645
+
+Drone
+             precision    recall  f1-score   support
+
+          0       0.98      1.00      0.99       607
+          1       0.96      0.71      0.82        38
+
+avg / total       0.98      0.98      0.98       645
+
+Drone
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       606
+          1       0.84      0.82      0.83        38
+
+avg / total       0.98      0.98      0.98       644
+
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.97      0.97      0.97       576
+          1       0.74      0.75      0.74        60
+
+avg / total       0.95      0.95      0.95       636
+
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.97      0.94      0.95       576
+          1       0.55      0.71      0.62        59
+
+avg / total       0.93      0.92      0.92       635
+
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.97      0.95      0.96       576
+          1       0.62      0.73      0.67        59
+
+avg / total       0.94      0.93      0.94       635
+
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.96      0.93      0.95       575
+          1       0.49      0.63      0.55        59
+
+avg / total       0.92      0.91      0.91       634
+
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.98      0.95      0.96       575
+          1       0.62      0.80      0.70        59
+
+avg / total       0.94      0.94      0.94       634
+
+Computer Science
+             precision    recall  f1-score   support
+
+          0       0.97      0.93      0.95       617
+          1       0.15      0.32      0.21        25
+
+avg / total       0.94      0.90      0.92       642
+
+Computer Science
+             precision    recall  f1-score   support
+
+          0       0.97      0.85      0.91       617
+          1       0.08      0.32      0.13        25
+
+avg / total       0.93      0.83      0.88       642
+
+Computer Science
+             precision    recall  f1-score   support
+
+          0       0.98      0.93      0.96       617
+          1       0.24      0.52      0.33        25
+
+avg / total       0.95      0.92      0.93       642
+
+Computer Science
+             precision    recall  f1-score   support
+
+          0       0.98      0.90      0.94       616
+          1       0.15      0.46      0.23        24
+
+avg / total       0.95      0.88      0.91       640
+
+Computer Science
+             precision    recall  f1-score   support
+
+          0       0.98      0.90      0.94       616
+          1       0.17      0.54      0.26        24
+
+avg / total       0.95      0.89      0.91       640
+
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      1.00       618
+          1       0.93      0.88      0.90        32
+
+avg / total       0.99      0.99      0.99       650
+
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      1.00       618
+          1       0.97      0.88      0.92        32
+
+avg / total       0.99      0.99      0.99       650
+
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       618
+          1       1.00      0.72      0.84        32
+
+avg / total       0.99      0.99      0.99       650
+
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      1.00       618
+          1       1.00      0.88      0.93        32
+
+avg / total       0.99      0.99      0.99       650
+
+Driverless Cars
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       618
+          1       1.00      0.77      0.87        31
+
+avg / total       0.99      0.99      0.99       649
+
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       0.96      0.99      0.98       579
+          1       0.89      0.62      0.73        63
+
+avg / total       0.95      0.95      0.95       642
+
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       0.98      0.96      0.97       579
+          1       0.68      0.81      0.74        62
+
+avg / total       0.95      0.95      0.95       641
+
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       0.98      0.97      0.98       579
+          1       0.74      0.84      0.79        62
+
+avg / total       0.96      0.96      0.96       641
+
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       0.97      0.99      0.98       579
+          1       0.88      0.68      0.76        62
+
+avg / total       0.96      0.96      0.96       641
+
+Artificial Intelligence
+             precision    recall  f1-score   support
+
+          0       0.98      0.99      0.98       579
+          1       0.86      0.77      0.81        62
+
+avg / total       0.96      0.97      0.96       641
+
+Big Data
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       642
+          1       0.00      0.00      0.00         8
+
+avg / total       0.98      0.98      0.98       650
+
+Big Data
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       642
+          1       0.00      0.00      0.00         8
+
+avg / total       0.98      0.98      0.98       650
+
+Big Data
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       642
+          1       0.00      0.00      0.00         8
+
+avg / total       0.98      0.98      0.98       650
+
+Big Data
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       641
+          1       0.00      0.00      0.00         8
+
+avg / total       0.98      0.98      0.98       649
+
+Big Data
+             precision    recall  f1-score   support
+
+          0       0.99      0.98      0.99       641
+          1       0.00      0.00      0.00         8
+
+avg / total       0.98      0.97      0.97       649
+
+Internet of Things
+             precision    recall  f1-score   support
+
+          0       0.94      0.90      0.92       557
+          1       0.39      0.51      0.44        69
+
+avg / total       0.88      0.86      0.87       626
+
+Internet of Things
+             precision    recall  f1-score   support
+
+          0       0.96      0.78      0.86       557
+          1       0.30      0.75      0.42        69
+
+avg / total       0.89      0.77      0.81       626
+
+Internet of Things
+             precision    recall  f1-score   support
+
+          0       0.95      0.89      0.92       556
+          1       0.39      0.59      0.47        69
+
+avg / total       0.89      0.85      0.87       625
+
+Internet of Things
+             precision    recall  f1-score   support
+
+          0       0.92      0.77      0.84       556
+          1       0.20      0.49      0.29        68
+
+avg / total       0.85      0.74      0.78       624
+
+Internet of Things
+             precision    recall  f1-score   support
+
+          0       0.95      0.81      0.88       556
+          1       0.30      0.66      0.42        68
+
+avg / total       0.88      0.80      0.83       624
+
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.97      0.98      0.98       537
+          1       0.91      0.85      0.88       110
+
+avg / total       0.96      0.96      0.96       647
+
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.96      0.98      0.97       537
+          1       0.91      0.79      0.84       109
+
+avg / total       0.95      0.95      0.95       646
+
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.97      0.98      0.98       537
+          1       0.91      0.87      0.89       109
+
+avg / total       0.96      0.96      0.96       646
+
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.97      0.97      0.97       536
+          1       0.85      0.85      0.85       109
+
+avg / total       0.95      0.95      0.95       645
+
+Social Networks
+             precision    recall  f1-score   support
+
+          0       0.95      0.96      0.96       536
+          1       0.82      0.77      0.79       109
+
+avg / total       0.93      0.93      0.93       645
+
+Ecommerce
+             precision    recall  f1-score   support
+
+          0       0.98      1.00      0.99       594
+          1       0.98      0.81      0.89        54
+
+avg / total       0.98      0.98      0.98       648
+
+Ecommerce
+             precision    recall  f1-score   support
+
+          0       0.97      1.00      0.98       594
+          1       1.00      0.61      0.76        54
+
+avg / total       0.97      0.97      0.96       648
+
+Ecommerce
+             precision    recall  f1-score   support
+
+          0       0.95      0.99      0.97       594
+          1       0.86      0.44      0.59        54
+
+avg / total       0.94      0.95      0.94       648
+
+Ecommerce
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       594
+          1       0.88      0.94      0.91        54
+
+avg / total       0.99      0.98      0.98       648
+
+Ecommerce
+             precision    recall  f1-score   support
+
+          0       0.97      0.99      0.98       594
+          1       0.93      0.70      0.80        53
+
+avg / total       0.97      0.97      0.97       647
+
+Battery
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      0.99       631
+          1       0.76      0.84      0.80        19
+
+avg / total       0.99      0.99      0.99       650
+
+Battery
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       631
+          1       0.85      0.58      0.69        19
+
+avg / total       0.98      0.98      0.98       650
+
+Battery
+             precision    recall  f1-score   support
+
+          0       0.99      1.00      0.99       631
+          1       0.93      0.68      0.79        19
+
+avg / total       0.99      0.99      0.99       650
+
+Battery
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       630
+          1       0.89      0.84      0.86        19
+
+avg / total       0.99      0.99      0.99       649
+
+Battery
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       630
+          1       1.00      0.84      0.91        19
+
+avg / total       1.00      1.00      1.00       649
+
+BioTech
+             precision    recall  f1-score   support
+
+          0       0.98      0.98      0.98       602
+          1       0.78      0.73      0.75        48
+
+avg / total       0.96      0.96      0.96       650
+
+BioTech
+             precision    recall  f1-score   support
+
+          0       0.96      0.99      0.98       601
+          1       0.86      0.53      0.66        47
+
+avg / total       0.96      0.96      0.96       648
+
+BioTech
+             precision    recall  f1-score   support
+
+          0       0.98      0.99      0.98       601
+          1       0.80      0.70      0.75        47
+
+avg / total       0.96      0.97      0.96       648
+
+BioTech
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       601
+          1       0.84      0.89      0.87        47
+
+avg / total       0.98      0.98      0.98       648
+
+BioTech
+             precision    recall  f1-score   support
+
+          0       0.98      0.97      0.97       601
+          1       0.62      0.74      0.68        47
+
+avg / total       0.95      0.95      0.95       648
+
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       0.98      0.96      0.97       587
+          1       0.59      0.76      0.67        50
+
+avg / total       0.95      0.94      0.94       637
+
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       0.97      0.87      0.92       587
+          1       0.30      0.67      0.41        49
+
+avg / total       0.92      0.85      0.88       636
+
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       0.97      0.95      0.96       587
+          1       0.50      0.59      0.54        49
+
+avg / total       0.93      0.92      0.93       636
+
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       0.98      0.92      0.95       586
+          1       0.46      0.82      0.59        49
+
+avg / total       0.94      0.91      0.92       635
+
+Virtual Reality and Augmented Reality
+             precision    recall  f1-score   support
+
+          0       0.98      0.90      0.94       586
+          1       0.39      0.80      0.53        49
+
+avg / total       0.94      0.89      0.91       635
+
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.96      0.94      0.95       565
+          1       0.57      0.71      0.63        68
+
+avg / total       0.92      0.91      0.92       633
+
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.98      0.90      0.94       564
+          1       0.49      0.84      0.62        68
+
+avg / total       0.93      0.89      0.90       632
+
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.98      0.90      0.94       564
+          1       0.50      0.81      0.62        68
+
+avg / total       0.92      0.89      0.90       632
+
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.97      0.86      0.91       564
+          1       0.40      0.78      0.53        67
+
+avg / total       0.91      0.85      0.87       631
+
+Smartphones
+             precision    recall  f1-score   support
+
+          0       0.94      0.95      0.95       564
+          1       0.54      0.49      0.52        67
+
+avg / total       0.90      0.90      0.90       631
+

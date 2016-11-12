@@ -1,0 +1,40 @@
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.98      0.99      0.99       579
+          1       0.88      0.80      0.83        44
+
+avg / total       0.98      0.98      0.98       623
+
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.99      0.98      0.99       579
+          1       0.80      0.91      0.85        44
+
+avg / total       0.98      0.98      0.98       623
+
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.99      0.98      0.98       579
+          1       0.73      0.84      0.78        44
+
+avg / total       0.97      0.97      0.97       623
+
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.98      0.99      0.99       579
+          1       0.91      0.68      0.78        44
+
+avg / total       0.97      0.97      0.97       623
+
+Wearable Tech
+             precision    recall  f1-score   support
+
+          0       0.99      0.99      0.99       579
+          1       0.84      0.86      0.85        43
+
+avg / total       0.98      0.98      0.98       622
+

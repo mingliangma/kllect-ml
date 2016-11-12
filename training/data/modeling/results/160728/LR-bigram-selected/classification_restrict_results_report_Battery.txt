@@ -1,0 +1,40 @@
+Battery
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      0.99       611
+          1       0.63      0.92      0.75        13
+
+avg / total       0.99      0.99      0.99       624
+
+Battery
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      0.99       610
+          1       0.63      0.92      0.75        13
+
+avg / total       0.99      0.99      0.99       623
+
+Battery
+             precision    recall  f1-score   support
+
+          0       1.00      1.00      1.00       610
+          1       1.00      0.85      0.92        13
+
+avg / total       1.00      1.00      1.00       623
+
+Battery
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      0.99       610
+          1       0.64      0.75      0.69        12
+
+avg / total       0.99      0.99      0.99       622
+
+Battery
+             precision    recall  f1-score   support
+
+          0       1.00      0.99      1.00       610
+          1       0.73      0.92      0.81        12
+
+avg / total       0.99      0.99      0.99       622
+

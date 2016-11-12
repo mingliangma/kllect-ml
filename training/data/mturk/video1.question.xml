@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuestionForm
+    xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2005-10-01/QuestionForm.xsd">
+    <Overview>
+        <Title>Instructions</Title>
+        <Text>
+      You are helping to decide the relevant tags for given videos.
+    </Text>
+        <Text>
+	  Please try your best to make a decision using the textual information provided in the question only. You may view the original video using the external video URL, only if the provided textual information is not sufficient.
+	</Text>
+        <Text>
+      You'll be given three videos and the information about them. For each video, you'll be answering the following three questions:
+    </Text>
+        <List>
+            <ListItem>Whether the given textual description of the video contains the information about the video or not. For example, sometimes the description of a Youtube video is purely about promoting the social channel of the poster.</ListItem>
+            <ListItem>From a list of given tags, choose up to three most relevant tags for this video.</ListItem>
+            <ListItem>Whether you are able to answer the above two questions using only the textual information.</ListItem>
+        </List>
+        <Text></Text>
+        <FormattedContent>
+            <![CDATA[
+				<h1>Video #1</h1><h2><b>Title:</b> ${title_0}</h2>
+				<p><b>Source:</b> ${site_name_0}</p>
+				<p><b>Description:</b> ${description_0}</p>
+				<p><b>Video URL: </b><a href="${youtube_url_0}">${youtube_url_0}</a></p>
+		]]>
+        </FormattedContent>
+        <Binary>
+            <MimeType>
+                <Type>image</Type>
+                <SubType>${image_type_0}</SubType>
+            </MimeType>
+            <DataURL>${image_url_0}</DataURL>
+            <AltText>The video preview image.</AltText>
+        </Binary>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>descriptionType1</QuestionIdentifier>
+        <DisplayName>The type of the description</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>
+        Does this description contain information about the content of the video?
+      </Text>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>yes</SelectionIdentifier>
+                        <Text>Yes</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>no</SelectionIdentifier>
+                        <Text>No</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>unsure</SelectionIdentifier>
+                        <Text>No sure</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>tags1</QuestionIdentifier>
+        <DisplayName>The relevant tags to describe the topic of the video.</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>
+        What arethe most relevant keywords to describe the video? For example, if this is a video about Technology, specifically about "Big Data" and "Artificial Intelligence"; you could then choose "Big Data" and "Artificial Intelligence" from the following list.
+      </Text>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <MaxSelectionCount>3</MaxSelectionCount>
+                <StyleSuggestion>checkbox</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>t1</SelectionIdentifier>
+                        <Text>Internet of Things</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t2</SelectionIdentifier>
+                        <Text>Artificial Intelligence</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t3</SelectionIdentifier>
+                        <Text>Big Data</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t4</SelectionIdentifier>
+                        <Text>Computer Science</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t5</SelectionIdentifier>
+                        <Text>Driverless Cars</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t6</SelectionIdentifier>
+                        <Text>Drone</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t7</SelectionIdentifier>
+                        <Text>Manufacturing</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t8</SelectionIdentifier>
+                        <Text>NanoTech</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t9</SelectionIdentifier>
+                        <Text>Battery</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t10</SelectionIdentifier>
+                        <Text>BioTech</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t11</SelectionIdentifier>
+                        <Text>Virtual Reality (VR) and Augmented Reality (AR)</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t12</SelectionIdentifier>
+                        <Text>Smartphones</Text>
+                    </Selection>
+					<Selection>
+                        <SelectionIdentifier>t13</SelectionIdentifier>
+                        <Text>Social Networks</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t14</SelectionIdentifier>
+                        <Text>Ecommerce</Text>
+                    </Selection>
+                    <OtherSelection></OtherSelection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Overview>
+        <FormattedContent>
+            <![CDATA[
+				<h1>Video #2</h1><h2><b>Title:</b> ${title_1}</h2>
+				<p><b>Source:</b> ${site_name_1}</p>
+				<p><b>Description:</b> ${description_1}</p>
+				<p><b>Video URL: </b><a href="${youtube_url_1}">${youtube_url_1}</a></p>
+		]]>
+        </FormattedContent>
+        <Binary>
+            <MimeType>
+                <Type>image</Type>
+                <SubType>${image_type_1}</SubType>
+            </MimeType>
+            <DataURL>${image_url_1}</DataURL>
+            <AltText>The video preview image.</AltText>
+        </Binary>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>descriptionType2</QuestionIdentifier>
+        <DisplayName>The type of the description</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>
+        Does this description contain information about the content of the video?
+      </Text>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>yes</SelectionIdentifier>
+                        <Text>Yes</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>no</SelectionIdentifier>
+                        <Text>No</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>unsure</SelectionIdentifier>
+                        <Text>No sure</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>tags2</QuestionIdentifier>
+        <DisplayName>The relevant tags to describe the topic of the video.</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>
+        What arethe most relevant keywords to describe the video? For example, if this is a video about Technology, specifically about "Big Data" and "Artificial Intelligence"; you could then choose "Big Data" and "Artificial Intelligence" from the following list.
+      </Text>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <MaxSelectionCount>3</MaxSelectionCount>
+                <StyleSuggestion>checkbox</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>t1</SelectionIdentifier>
+                        <Text>Internet of Things</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t2</SelectionIdentifier>
+                        <Text>Artificial Intelligence</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t3</SelectionIdentifier>
+                        <Text>Big Data</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t4</SelectionIdentifier>
+                        <Text>Computer Science</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t5</SelectionIdentifier>
+                        <Text>Driverless Cars</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t6</SelectionIdentifier>
+                        <Text>Drone</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t7</SelectionIdentifier>
+                        <Text>Manufacturing</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t8</SelectionIdentifier>
+                        <Text>NanoTech</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t9</SelectionIdentifier>
+                        <Text>Battery</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t10</SelectionIdentifier>
+                        <Text>BioTech</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t11</SelectionIdentifier>
+                        <Text>Virtual Reality (VR) and Augmented Reality (AR)</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t12</SelectionIdentifier>
+                        <Text>Smartphones</Text>
+                    </Selection>
+					<Selection>
+                        <SelectionIdentifier>t13</SelectionIdentifier>
+                        <Text>Social Networks</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t14</SelectionIdentifier>
+                        <Text>Ecommerce</Text>
+                    </Selection>
+                    <OtherSelection></OtherSelection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Overview>
+        <FormattedContent>
+            <![CDATA[
+				<h1>Video #3</h1><h2><b>Title:</b> ${title_2}</h2>
+				<p><b>Source:</b> ${site_name_2}</p>
+				<p><b>Description:</b> ${description_2}</p>
+				<p><b>Video URL: </b><a href="${youtube_url_2}">${youtube_url_2}</a></p>
+		]]>
+        </FormattedContent>
+        <Binary>
+            <MimeType>
+                <Type>image</Type>
+                <SubType>${image_type_2}</SubType>
+            </MimeType>
+            <DataURL>${image_url_2}</DataURL>
+            <AltText>The video preview image.</AltText>
+        </Binary>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>descriptionType3</QuestionIdentifier>
+        <DisplayName>The type of the description</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>
+        Does this description contain information about the content of the video?
+      </Text>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>yes</SelectionIdentifier>
+                        <Text>Yes</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>no</SelectionIdentifier>
+                        <Text>No</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>unsure</SelectionIdentifier>
+                        <Text>No sure</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>tags3</QuestionIdentifier>
+        <DisplayName>The relevant tags to describe the topic of the video.</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Text>
+        What arethe most relevant keywords to describe the video? For example, if this is a video about Technology, specifically about "Big Data" and "Artificial Intelligence"; you could then choose "Big Data" and "Artificial Intelligence" from the following list.
+      </Text>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <MaxSelectionCount>3</MaxSelectionCount>
+                <StyleSuggestion>checkbox</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>t1</SelectionIdentifier>
+                        <Text>Internet of Things</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t2</SelectionIdentifier>
+                        <Text>Artificial Intelligence</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t3</SelectionIdentifier>
+                        <Text>Big Data</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t4</SelectionIdentifier>
+                        <Text>Computer Science</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t5</SelectionIdentifier>
+                        <Text>Driverless Cars</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t6</SelectionIdentifier>
+                        <Text>Drone</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t7</SelectionIdentifier>
+                        <Text>Manufacturing</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t8</SelectionIdentifier>
+                        <Text>NanoTech</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t9</SelectionIdentifier>
+                        <Text>Battery</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t10</SelectionIdentifier>
+                        <Text>BioTech</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t11</SelectionIdentifier>
+                        <Text>Virtual Reality (VR) and Augmented Reality (AR)</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t12</SelectionIdentifier>
+                        <Text>Smartphones</Text>
+                    </Selection>
+					<Selection>
+                        <SelectionIdentifier>t13</SelectionIdentifier>
+                        <Text>Social Networks</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>t14</SelectionIdentifier>
+                        <Text>Ecommerce</Text>
+                    </Selection>
+                    <OtherSelection></OtherSelection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+</QuestionForm>
