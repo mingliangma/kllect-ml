@@ -145,27 +145,85 @@ The expected result should be:
 }
    ```
 
+* Run a RESTful API test to test the `index_videos` API:
+
+  **WARNING: Running this API would cause a dummy video being inserted into the ElasticSearch index. Please make sure to run the following `delete_videos` API test to remove this dummy video.**
+ 
+   ```
+   curl -H "Content-Type: application/json" -X POST -d '{"input" : [{"_id" : "testtest", "title" : "a test video"}]}' http://localhost:5012/index_videos
+   ```
+
+The expected result should be:
+   ```json
+   {
+  "batches": [
+    {
+      "batch_id": 0, 
+      "input_ids": [
+        "testtest"
+      ], 
+      "skips": [], 
+      "success": true
+    }
+  ], 
+  "status": 200, 
+  "success": true, 
+  "total_skips": 0
+}
+   ```
+   
+* Run a RESTful API test to test the `delete_videos` API:
+
+   ```
+   curl -H "Content-Type: application/json" -X POST -d '{"input" : [{"_id" : "testtest"}]}' http://localhost:5012/delete_videos
+   ```
+
+The expected result should be:
+   ```json
+   {
+  "batches": [
+    {
+      "batch_id": 0, 
+      "fails": [], 
+      "input_ids": [
+        "testtest"
+      ], 
+      "success": true, 
+      "successes": [
+        "testtest"
+      ]
+    }
+  ], 
+  "status": 200, 
+  "success": true, 
+  "total_fails": 0, 
+  "total_successes": 1
+}
+   ```
+   
+ 1. [How to use the Reindex Service] (#how-to-use-the-reindex-service)
+  2. [How to use the Index New Videos API] (#how-to-use-the-index-new-videos-api)
+  3. [How to use the Delete Old Videos API] (#how-to-use-the-delete-old-videos-api)
+  4. [How to use the Search Videos API] (#how-to-use-the-search-videos-api)
 
 ## How to use the Services
-### How to use the Category Classification API
-  - **URL:** `http://{Your host's IP address}:5011/category_classification`
+### How to use the Reindex Service
+  Simply run the `kllect-reindex` docker with the following command:
+  
+      docker run -t kllect:reindex
+      
+  As state in the beginning, you should avoid using this service if you are dealing with a small amount of new data each time, because indexing the whole set of video data takes significant amount of time. However, this service is fully automated in a way that there would be no down time experienced even if the reindexing process takes a long time. Therefore, running this docker does not cause any damage, just a waste of bandwidth and instance machine time.
+  
+### How to use the Index New Videos API
+      
+  - **URL:** `http://{Your host's IP address}:5012/index_videos`
   - **Method:** `POST`
   - **Request format:** `JSON`
   - **Request parameters:**
 
     | Parameter | Required | Description |
     | :--------- | :---------: | ----------- |
-    | `data`   | Y | A **list** containing all the input videos for classification. Each element in the `data` list needs to be in a certain form. Details see below.|
-
-
-  - **`data` parameter format:** Each element in the `data` parameter needs to be of the following `JSON` format:
-
-    | Parameter | Required | Description |
-    | :--------- | :---------: | ----------- |
-    | `id`     | Y | The **identifier** of the video, will be returned as part of the response. This ID won't be used to link any external data source, only for the purpose of identifying the document being requested. |
-    | `title`   | N | The **title** of the video. |
-    | `description` | N | The **description** of the video. |
-    | `raw_tags` | N | The list of **raw tags** of the video as gathered from Youtube.|
+    | `input`   | Y | A **list** containing all the input videos to be indexed. Each element in the `input` list needs to be in the same format as the data stored in MongoDB. The maximum number of elements in the `input` list is set as 2,000.|
 
 
   - **Response format:** `JSON`
@@ -173,17 +231,55 @@ The expected result should be:
 
     | Parameter | Description |
     | :---------| :--------- |
-    | `results` | The list of prediction results returned. Each element in the `results` list would be in a certain form. Details see below.|
+    | `batches` | The input data will be indexed in mini-batches, each of which contains 500 videos. This field contains a **list** of response detail for each batch, including the input video ids (to identify the data in each mini-batch), and whether this batch was successfully indexed or not. See below for the format of this field.|
+    | `success` | Indicates whether the whole process succeeded or not. Not that each individual mini-batch might have encountered errors on its own. Please check the response detail in the `batches` field.|
+    | `total_skips` | The total number of malformed videos which were skipped (not indexed) across the batches. |
 
 
-  - **`results` parameter format:** Each element in the `results` parameter will be of the following `JSON` format:
+  - **`batches` parameter format:** Each element in the `batches` parameter will be of the following `JSON` format:
 
     | Parameter | Description |
     | :--------- | :--------- |
-    | `id` | The **identifier** of the video, will be returned as part of the response. This would be used to identify each video in the request. Note, in the case where some input videos are not in the valid format, as specified in the `data` parameter part, those videos will not be present in the response, i.e., their `id`s are missing in the response. Also, the order of the videos in the response is not guaranteed to be the same as in the request. |
-    | `categories` | The list of predicted **categories** of the video. |
+    | `batch_id` | The **identifier** of the batch, starting from 0. |
+    | `input_ids` | The list of `_id`s of the videos being partitioned into this batch. |
+    | `success` | Indicates whether this batch succeeded or not. |
+    | `skips` | The list of `_id`s of the malformed videos which were skipped in this batch. |
 
 
+### How to use the Delete Old Videos API
+
+  - **URL:** `http://{Your host's IP address}:5012/delete_videos`
+  - **Method:** `POST`
+  - **Request format:** `JSON`
+  - **Request parameters:**
+
+    | Parameter | Required | Description |
+    | :--------- | :---------: | ----------- |
+    | `input`   | Y | A **list** containing all the input videos to be deleted. Each element in the `input` list needs to contain at least an `_id` field (all other extra fields will be ignored). The maximum number of elements in the `input` list is set as 2,000.|
+
+
+  - **Response format:** `JSON`
+  - **Response:**
+
+    | Parameter | Description |
+    | :---------| :--------- |
+    | `batches` | The input data will be indexed in mini-batches, each of which contains 500 videos. This field contains a **list** of response detail for each batch, including the input video ids (to identify the data in each mini-batch), and whether this batch was successfully indexed or not. See below for the format of this field.|
+    | `success` | Indicates whether the whole process succeeded or not. Not that each individual mini-batch might have encountered errors on its own. Please check the response detail in the `batches` field.|
+    | `total_successes` | The total number of videos which were successfully indexed across the batches. |
+    | `total_fails` | The total number of videos which were **not** indexed across the batches. These are those input videos which were not found in the existing index. Nothing happened for these videos.|
+
+
+  - **`batches` parameter format:** Each element in the `batches` parameter will be of the following `JSON` format:
+
+    | Parameter | Description |
+    | :--------- | :--------- |
+    | `batch_id` | The **identifier** of the batch, starting from 0. |
+    | `input_ids` | The list of `_id`s of the videos being partitioned into this batch. |
+    | `success` | Indicates whether this batch succeeded or not. |
+    | `successes` | The list of `_id`s of the videos which were successfully indexed in this batch. |
+    | `fails` | The list of `_id`s of the videos which were **not** indexed in this batch. |
+    
+    
 ### How to use the Tag Classification API
   - **URL:** `http://{Your host's IP address}:5011/tag_classification`
   - **Method:** `POST`
