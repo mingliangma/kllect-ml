@@ -5,20 +5,20 @@ import search_parameters as p
 from datetime import datetime
 
 
-def compose_filters(category):
-    filters = [
-        {
-            "term" : {
-                est.category_field : category
-            }
-        }
-    ]
-
-    filter = {
-        "and" : filters
-    }
-
-    return filter
+# def compose_filters(category):
+#     filters = [
+#         {
+#             "term" : {
+#                 est.category_field : category
+#             }
+#         }
+#     ]
+#
+#     filter = {
+#         "and" : filters
+#     }
+#
+#     return filter
 
 
 def compose_query(keyword, preferences):
@@ -32,15 +32,15 @@ def compose_query(keyword, preferences):
         total_weight = sum([x[1] for x in preferences])
 
         for tag, weight in preferences:
-            norm_weight = weight / total_weight
+            norm_weight = weight / total_weight * p.PREFERENCE_BOOSTING_FACTOR
 
             preference_scoring.append({
                 "filter": {
                     "term": {
-                        est.tags_field : tag
+                        est.category_tag_field : tag
                     }
                 },
-                "weight": norm_weight * p.PREFERENCE_BOOSTING_FACTOR
+                "weight": norm_weight
             })
 
     rating_scoring = [
@@ -113,15 +113,15 @@ def compose_query(keyword, preferences):
     return query
 
 
-def search_videos(keyword, category=None, preferences=[], start=0, top_n=p.TOP_N):
+def search_videos(keyword, preferences=[], start=0, top_n=p.TOP_N):
     inner_query = {
         "filtered": {
             "query": compose_query(keyword, preferences)
         }
     }
 
-    if category:
-        inner_query["filtered"]['filter'] = compose_filters(category)
+    # if category:
+    #     inner_query["filtered"]['filter'] = compose_filters(category)
 
     query = {
         "from" : start,
@@ -151,11 +151,10 @@ def search_videos(keyword, category=None, preferences=[], start=0, top_n=p.TOP_N
 #
 #     keyword = 'apple'
 #     results, total = search_videos(keyword=keyword,
-#                                    #category='technology',
 #                                    preferences=preferences,
 #                                    start=0,
 #                                    top_n=p.TOP_N)
 #
 #     for result in results:
-#         print result
+#         print {x : result[x] for x in ['video_id', 'title', 'tags', 'category_tag']}
 

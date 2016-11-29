@@ -103,6 +103,10 @@ index_mapping = {
                 },
                 popularity_field: {
                     "type": "double"
+                },
+                category_tag_field : {
+                    "type" : "string",
+                    "index": "not_analyzed"
                 }
             }
         }

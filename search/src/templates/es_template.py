@@ -25,3 +25,5 @@ favorite_count_field = 'favorite_count'
 comment_count_field = 'comment_count'
 popularity_field = 'popularity'
 raw_tags_text_field = 'raw_tags_text'
+category_tag_field = 'category_tag'
+

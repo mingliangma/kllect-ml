@@ -22,10 +22,15 @@ def index_video_data_batch(batch_data, es, write_index):
             if mt.raw_tags_field in doc and doc[mt.raw_tags_field]:
                 out[est.raw_tags_text_field] = ' '.join(doc[mt.raw_tags_field])
 
+            if mt.category_field in doc and mt.tags_field in doc:
+                category = doc[mt.category_field]
+                category_tags = [category]
+                for tag in doc[mt.tags_field]:
+                    category_tags.append('%s.%s' % (category, tag))
+
+                out[est.category_tag_field] = category_tags
             batch.append(out)
         except Exception, e:
-            # print doc[mt.id_field]
-
             video_id = doc[mt.id_field] if mt.id_field in doc else None
             skipped_ids.append(video_id)
 
@@ -95,3 +100,17 @@ def remove_video_data_batch(input_ids, es, write_index):
             }
 
 
+if __name__ == '__main__':
+    from pymongo import MongoClient
+    from pyelasticsearch import ElasticSearch
+
+    mongo_client = MongoClient(config.mongodb_uri)
+    db = mongo_client[config.db]
+    es = ElasticSearch(urls=['http://%s' % x for x in config.es_hosts],
+                       timeout=600)
+    batch = []
+    for doc in db[config.article_mongo_col].find():
+        batch.append(doc)
+        if len(batch) == 10:
+            remove_video_data_batch(batch, es, config.video_write_index_alias)
+            break

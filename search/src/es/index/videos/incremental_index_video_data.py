@@ -100,3 +100,24 @@ def delete_videos(old_videos):
         }
 
 
+# if __name__ == '__main__':
+#     from pymongo import MongoClient
+#
+#     mongo_client = MongoClient(config.mongodb_uri)
+#     db = mongo_client[config.db]
+#     es = ElasticSearch(urls=['http://%s' % x for x in config.es_hosts],
+#                        timeout=600)
+#     batch = []
+#     i = 0
+#     batch_size = 500
+#
+#     for doc in db[config.article_mongo_col].find().batch_size(batch_size=batch_size):
+#         batch.append(doc)
+#         if len(batch) == batch_size:
+#             res = index_videos(batch)
+#             print res
+#             print {x : res[x] for x in res if x not in [rt.batch_responses_field]}
+#
+#             break
+#
+#         i += 1

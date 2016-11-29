@@ -101,8 +101,6 @@ def search_videos_query():
 
             input_preferences.append((category_name, category_weight))
 
-    category = request_utils.get_dict_value(r, rt.search_videos_category_field, None)
-
     keyword = request_utils.get_dict_value(r, rt.search_videos_keyword_field, '')
     size = request_utils.get_dict_value(r, rt.search_videos_size_field, None)
     if size is not None:
@@ -115,7 +113,7 @@ def search_videos_query():
                                     rt.response_error_code_field: invalid_parameter_value_error})
 
     try:
-        results, total = search_videos.search_videos(keyword = keyword, category=category, preferences=input_preferences,
+        results, total = search_videos.search_videos(keyword = keyword, preferences=input_preferences,
                                                      start=start, top_n=size)
 
         r = {
