@@ -1,10 +1,17 @@
 # Video Data Index and Search
 
+The Elasticsearch cluster is currently hosted on the following three instances:
+1. 54.175.64.170
+2. 54.175.64.170
+3. 54.175.64.170
+
+
 
 This repository currently contains the Docker files and source code for the `Video Data Index and Search` microservices. The service now supports the following functinality:
 * `reindex`: A full reindexing of all the video data currently in the MongoDB to ElasticSearch. You should **avoid using** this microservice as much as possible, in favor of the incremental index/delete of video data if you are dealing with a small amount of change, e.g., daily update your searchable video index. The reason why you should avoid using this service is simply because of the unnecessary time spent on processing those data that remain the same. **However, this service is fully automated in a way that there would be no down time experienced even if the reindexing process takes a long time.**
-* `incremental.
-* The full two-level classification, which is essentially a wrapper for the two APIs above.
+* `index_videos`: Incrementally **index** a list of new videos. This service will simply add this new list of videos into the existing Elasticsearch index to make them searchable.
+* `delete_videos`: Incrementally **remove** a list of old videos. This service will simply remove this list of videos from the existing Elasticsearch index so they are no longer searchable.
+* `search_videos`: Given the specified search criteria, this service will return a list of videos sorted by their relevancy score.
 
 
 ## Content
