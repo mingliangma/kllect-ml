@@ -9,7 +9,7 @@ The Elasticsearch cluster is currently hosted on the following three instances:
 You can take a look at your current index via this URL:
 http://54.175.41.130:9200/_plugin/head/
 
-It should looks something like this:
+It should look something like this:
 ![alt tag](https://github.com/mingliangma/kllect-ml/blob/search/search/2016-11-28%2023_12_58-elasticsearch-head.png)
 
 
