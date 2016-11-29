@@ -24,24 +24,45 @@ This repository currently contains the Docker files and source code for the `Vid
 
 ## Content
 * [Docker building instructions] (#docker-building-instructions)
+  1. [Build the Reindex docker] (#build-the-reindex-docker)
+  2. [Build the RESTful APIs docker] (#build-the-restful-apis-docker)
+ 
 * [Test if the APIs work properly] (#test-if-the-apis-work-properly)
 * How to use the API
-  1. [How to use the Category Classifcation API] (#how-to-use-the-category-classification-api)
-  2. [How to use the Tag Classifcation API] (#how-to-use-the-tag-classification-api)
-  3. [How to use the Full Classifcation API] (#how-to-use-the-full-classification-api)
+  1. [How to use the Reindex Service] (#how-to-use-the-reindex-service)
+  2. [How to use the Index New Videos API] (#how-to-use-the-index-new-videos-api)
+  3. [How to use the Delete Old Videos API] (#how-to-use-the-delete-old-videos-api)
+  4. [How to use the Search Videos API] (#how-to-use-the-search-videos-api)
 
 ## Docker building instructions
 
+### Build the Reindex docker
+
 In the current folder:
 
-1. `docker build -t kllect/ml:latest .` (don't forget the last period)
+    `docker build -t kllect:reindex -f Dockerfile-reindex .` (don't forget the last period)
+
+
+If everything works out right, run the following command to launch the container. **WARNING**: This will start the complete reindex process.
+
+        docker run -t kllect:reindex
+
+
+### Build the RESTful APIs docker
+
+In the current folder:
+
+    `docker build -t kllect:search -f Dockerfile-search .` (don't forget the last period)
 
 
 If everything works out right, run the following command to launch the container. Let's map the container's exposed port to the same port on the host.
 
-        docker run --name kllectml -p :5011:5011 -t kllect/ml:latest
-
+        docker run --name kllectsearch -p :5012:5012 -t kllect:search
+        
 ## Kllect Docker registry
+
+** Please update **
+
 Docker registry is hosted on Docker Hub. If Ming (owner) hasn't add you to Kllect organization, please him to do so.
 
 Login with your personal Docker ID and password to push and pull images from Docker Hub:
