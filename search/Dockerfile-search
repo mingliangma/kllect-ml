@@ -37,6 +37,7 @@ RUN chown -R app:app /app/
 COPY ./requirements.txt /app
 RUN cd /app && pip install -r requirements.txt
 RUN pip install supervisor
+RUN pip install pyelasticsearch
 
 
 # copy over app and data
