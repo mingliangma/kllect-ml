@@ -24,9 +24,6 @@ def index_video_data_batch(batch_data, es, write_index):
 
             batch.append(out)
         except Exception, e:
-            import traceback
-            traceback.print_exc()
-
             # print doc[mt.id_field]
 
             video_id = doc[mt.id_field] if mt.id_field in doc else None
@@ -39,8 +36,6 @@ def index_video_data_batch(batch_data, es, write_index):
                            index=write_index,
                            doc_type=config.video_doc_type
                            )
-
-        print response
 
         try:
             errors = response['errors']
@@ -100,17 +95,3 @@ def remove_video_data_batch(input_ids, es, write_index):
             }
 
 
-if __name__ == '__main__':
-    from pymongo import MongoClient
-    from pyelasticsearch import ElasticSearch
-
-    mongo_client = MongoClient(config.mongodb_uri)
-    db = mongo_client[config.db]
-    es = ElasticSearch(urls=['http://%s' % x for x in config.es_hosts],
-                       timeout=600)
-    batch = []
-    for doc in db[config.article_mongo_col].find():
-        batch.append(doc)
-        if len(batch) == 10:
-            remove_video_data_batch(batch, es, config.video_write_index_alias)
-            break

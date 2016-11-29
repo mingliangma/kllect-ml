@@ -1,9 +1,9 @@
-# Video Content Classification
+# Video Data Index and Search
 
 
-This repository currently contains the Docker files, source code, and data for the `Video Category/Content Classification` microservice. The service now supports the following functinality:
-* The first-level category classification for `Technology` vs. `Others`.
-* The second-level tag classification for `Technology` videos.
+This repository currently contains the Docker files and source code for the `Video Data Index and Search` microservices. The service now supports the following functinality:
+* `reindex`: A full reindexing of all the video data currently in the MongoDB to ElasticSearch. You should **avoid using** this microservice as much as possible, in favor of the incremental index/delete of video data if you are dealing with a small amount of change, e.g., daily update your searchable video index. The reason why you should avoid using this service is simply because of the unnecessary time spent on processing those data that remain the same. **However, this service is fully automated in a way that there would be no down time experienced even if the reindexing process takes a long time.**
+* `incremental.
 * The full two-level classification, which is essentially a wrapper for the two APIs above.
 
 

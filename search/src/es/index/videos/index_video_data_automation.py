@@ -111,5 +111,3 @@ def index_video_data_automation():
                            name=config.video_read_index_alias)
 
 
-# if __name__ == '__main__':
-#     index_video_data_automation()
