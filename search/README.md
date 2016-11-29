@@ -1,12 +1,16 @@
 # Video Data Index and Search
 
 The Elasticsearch cluster is currently hosted on the following three instances:
+
 1. 54.175.64.170
-2. 54.175.64.170
-3. 54.175.64.170
+2. 54.210.216.186
+3. 54.175.41.130
 
 You can take a look at your current index via this URL:
-http://ec2-54-175-64-170.compute-1.amazonaws.com:9200/_plugin/head/
+http://54.175.41.130:9200/_plugin/head/
+
+It should looks something like this:
+![alt tag](https://github.com/mingliangma/kllect-ml/blob/search/search/2016-11-28%2023_12_58-elasticsearch-head.png)
 
 
 # About this Repository
