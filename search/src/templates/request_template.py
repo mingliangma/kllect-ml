@@ -26,3 +26,6 @@ search_videos_preference_name_subfield = 'tag'
 search_videos_preference_weight_subfield = 'weight'
 search_videos_total_field = 'total'
 search_videos_results_field = 'results'
+
+response_error_field = 'error'
+response_error_code_field = 'error_code'

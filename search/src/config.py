@@ -1,6 +1,6 @@
 import os
 
-EXPOSED_PORT = 5011
+EXPOSED_PORT = 5012
 
 DEBUG_FLAG = 'DEBUG'
 if DEBUG_FLAG in os.environ:

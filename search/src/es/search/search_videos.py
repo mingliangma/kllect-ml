@@ -2,7 +2,6 @@ from elasticsearch import Elasticsearch
 import config
 import templates.es_template as est
 import search_parameters as p
-import json
 from datetime import datetime
 
 
