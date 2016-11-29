@@ -200,11 +200,7 @@ The expected result should be:
   "total_successes": 1
 }
    ```
-   
- 1. [How to use the Reindex Service] (#how-to-use-the-reindex-service)
-  2. [How to use the Index New Videos API] (#how-to-use-the-index-new-videos-api)
-  3. [How to use the Delete Old Videos API] (#how-to-use-the-delete-old-videos-api)
-  4. [How to use the Search Videos API] (#how-to-use-the-search-videos-api)
+
 
 ## How to use the Services
 ### How to use the Reindex Service
@@ -280,64 +276,35 @@ The expected result should be:
     | `fails` | The list of `_id`s of the videos which were **not** indexed in this batch. |
     
     
-### How to use the Tag Classification API
-  - **URL:** `http://{Your host's IP address}:5011/tag_classification`
+### [How to use the Search Videos API
+
+  - **URL:** `http://{Your host's IP address}:5012/search_videos`
   - **Method:** `POST`
   - **Request format:** `JSON`
   - **Request parameters:**
 
     | Parameter | Required | Description |
     | :--------- | :---------: | ----------- |
-    | `category`     | Y | The **first-level category** of the video. Currently, only `Technology` category is supported. |
-    | `data`   | Y | A **list** containing all the input videos for classification. Each element in the `data` list needs to be in a certain form. The same as the `data` parameter in the `Category Classification` API.|
+    | `keyword`   | N | A search keyword, e.g., `apple` or `apple macbook`. If supplied, the search engine will return only those videos whose t**itle, description, raw_tags, or tags** matches **at least one word** in the search keyword (if it happens to be phrase). If not supplied, the search engine will return all videos, but ranked according to other speicifed criteria. |
+    | `start` | N | An integer, default 0, specifying from which position the items in the ranked search result will be returned as the result of this query. For example, `start=0` means include the items starting from the top search result, while `start=20` means include the items starting from the 21-th search result. This parameter, in combination with the `size` parameter, is to allow pagination of the search result page. |
+    | `size` | N | An integer, default 20, specifying the maximum number of items returned in this query.  This parameter, in combination with the `size` parameter, is to allow pagination of the search result page. For example, `start=0, size=20` means this query will return the top 20 search results. Therefore, for example, if the user clicks `next page`, you can fire another query with `start=20, size=20` to fetch search results on the second page and so on. |
+    | `preferences`  | N | A list of preferences, in terms of **first-level** category w/o **second-level** tags with their corresponding relative weights, to influence the final ranking. For example, if the input preference has a high weight on tag `smartphones`, then search results with this tag will receive extra boosting. See below for the data format of this `preferences` field. |
+    
+    
+- **`preferences` parameter format:** Each element in the `preferences` parameter will be of the following `JSON` format:
 
+    | Parameter | Description |
+    | :--------- | :--------- |
+    | `tag` | The **first-level** video category plus **second-level** tags, e.g., `technology.smartphones` and `technology.internet of things`. In case second-level tag is not supplied in this parameter, e.g., `technology` only, the query will equally boost all technology videos.|
+    | `weight` | The relative importance of this preference, as a user can specify multiple preferences. The weight will be normalized  to sum up as 1 in the backend, so only their relative values matter. |
 
   - **Response format:** `JSON`
   - **Response:**
 
     | Parameter | Description |
     | :---------| :--------- |
-    | `results` | The list of prediction results returned. Each element in the `results` list would be in a certain form. Details see below.|
-
-
-  - **`results` parameter format:** Each element in the `results` parameter will be of the following `JSON` format:
-
-    | Parameter | Description |
-    | :--------- | :--------- |
-    | `id` | The **identifier** of the video, will be returned as part of the response. This would be used to identify each video in the request. Note, in the case where some input videos are not in the valid format, as specified in the `data` parameter part, those videos will not be present in the response, i.e., their `id`s are missing in the response. Also, the order of the videos in the response is not guaranteed to be the same as in the request. |
-    | `tags` | The list of predicted **tags** of the video. |
-
-
-### How to use the Full Classification API
-  - **URL:** `http://{Your host's IP address}:5011/full_classification`
-  - **Method:** `POST`
-  - **Request format:** `JSON`
-  - **Request parameters:**
-
-    | Parameter | Required | Description |
-    | :--------- | :---------: | ----------- |
-    | `data`   | Y | A **list** containing all the input videos for classification. Each element in the `data` list needs to be in a certain form. The same as the `data` parameter in the `Category Classification` API.|
-
-
-  - **Response format:** `JSON`
-  - **Response:**
-
-    | Parameter | Description |
-    | :---------| :--------- |
-    | `results` | The list of prediction results returned. Each element in the `results` list would be in a certain form. Details see below.|
-
-
-  - **`results` parameter format:** Each element in the `results` parameter will be of the following `JSON` format:
-
-    | Parameter | Description |
-    | :--------- | :--------- |
-    | `id` | The **identifier** of the video, will be returned as part of the response. This would be used to identify each video in the request. Note, in the case where some input videos are not in the valid format, as specified in the `data` parameter part, those videos will not be present in the response, i.e., their `id`s are missing in the response. Also, the order of the videos in the response is not guaranteed to be the same as in the request. |
-    | `full_predictions` | The **list** of predicted **categories** and the associated **tags** of the video. Details see below.|
-
-
-  - **`full_predictions` output format:** Each element in the `full_predictions` output field will contain the following `JSON` format:
-
-    | Parameter |Description |
-    | :--------- | ----------- |
-    | `category`   | The predicted **category** of the video. Currently, we only support `Technology` vs. `Others`.|
-    | `tags` | The list of second-level tags associated the category of interest. At this moment, we only support second-level tags for the `Technology` category.|
+    | `results` | The list of search results ranked by their relevancy to the search criteria.|
+    | `size` | Echo the `size` parameter in the request. |
+    | `start` | Echo the `start` parameter in the request. |
+    | `total` | The total number of result found matching the search criteria. So you can do proper pagination. |
+    
