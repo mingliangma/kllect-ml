@@ -28,7 +28,7 @@ This repository currently contains the Docker files and source code for the `Vid
   2. [Build the RESTful APIs docker] (#build-the-restful-apis-docker)
  
 * [Test if the APIs work properly] (#test-if-the-apis-work-properly)
-* How to use the API
+* How to use the Services
   1. [How to use the Reindex Service] (#how-to-use-the-reindex-service)
   2. [How to use the Index New Videos API] (#how-to-use-the-index-new-videos-api)
   3. [How to use the Delete Old Videos API] (#how-to-use-the-delete-old-videos-api)
@@ -40,7 +40,7 @@ This repository currently contains the Docker files and source code for the `Vid
 
 In the current folder:
 
-    `docker build -t kllect:reindex -f Dockerfile-reindex .` (don't forget the last period)
+  `docker build -t kllect:reindex -f Dockerfile-reindex .` (don't forget the last period)
 
 
 If everything works out right, run the following command to launch the container. **WARNING**: This will start the complete reindex process.
@@ -52,7 +52,7 @@ If everything works out right, run the following command to launch the container
 
 In the current folder:
 
-    `docker build -t kllect:search -f Dockerfile-search .` (don't forget the last period)
+  `docker build -t kllect:search -f Dockerfile-search .` (don't forget the last period)
 
 
 If everything works out right, run the following command to launch the container. Let's map the container's exposed port to the same port on the host.
@@ -81,70 +81,72 @@ docker pull kllect/ml:lastest
 Auto deployment is setup in Docker Cloud - Services so that when a new GitHub commit is detected, a new docker image will be built, and deployed to AWS EC2 Instance.
 
 ## Test if the APIs work properly
-* Run a RESTful API test to test first-level video category classification:
+* Run a RESTful API test to test the `search_videos` API:
 
    ```
-   curl -H "Content-Type: application/json" -X POST -d '{"data":[{"id":1, "title":"Thinnest Smartphone In The World! (Vivo X5 Max)", "description":"Unboxing and overview of the thinnest smartphone in the world in the Vivo X5 Max. This phone measures in at just 4.75mm thick, beating out the Oppo R5 (4.85mm) for the title of world’s thinnest phone. Places I hang out: Facebook: http://www.facebook.com/phonebuff Google+: http://www.google.com/+PhoneBuff Instagram: http://instagram.com/phonebuff Twitter: http://twitter.com/phonebuff", "raw_tags":["thinnest phone", "vivo x5 max", "vivo", "x5 max", "thinnest phone in the world", "phonebuff"]}]}' http://localhost:5011/category_classification
-   ```
-
-The expected result should be:
-   ```json
-   {
-     "results": [
-       {
-           "categories": [
-              "Technology"
-            ],
-          "id": 1
-    	}]
-    }
-   ```
-
-* Run a RESTful API test to test second-level tag classification:
-
-   ```
-   curl -H "Content-Type: application/json" -X POST -d '{"category":"Technology", "data":[{"id":1, "title":"Thinnest Smartphone In The World! (Vivo X5 Max)", "description":"Unboxing and overview of the thinnest smartphone in the world in the Vivo X5 Max. This phone measures in at just 4.75mm thick, beating out the Oppo R5 (4.85mm) for the title of world’s thinnest phone. Places I hang out: Facebook: http://www.facebook.com/phonebuff Google+: http://www.google.com/+PhoneBuff Instagram: http://instagram.com/phonebuff Twitter: http://twitter.com/phonebuff", "raw_tags":["thinnest phone", "vivo x5 max", "vivo", "x5 max", "thinnest phone in the world", "phonebuff"]}]}' http://localhost:5011/tag_classification
+   curl -H "Content-Type: application/json" -X POST -d '{"keyword" : "apple"}' http://localhost:5012/search_videos
    ```
 
 The expected result should be:
    ```json
    {
-     "results": [
-       {
-           "id": 1,
-           "tags": [
-              "Smartphones"
-            ]
-    	}]
+  "results": [
+    {
+      "article_url": "https://youtu.be/rXfyccUvukc", 
+      "category": "technology", 
+      "comment_count": 777, 
+      "description": "THE NEW Apple Watch Series 2, we got it for $4 on black friday :)\n\u25b6Infinite Warfare: HOW TO AIM BETTER:\nhttps://www.youtube.com/watch?v=TlYGNBPNbns\n\u25b6Infinite Warfare How To LEVEL UP FAST:\nhttps://www.youtube.com/watch?v=yLhZ1U8ij7M\n\u25b6SELLING Infinite Warfare at GAMESTOP (Day Of RELEASE)\nhttps://www.youtube.com/watch?v=eRG0OywM_XY\n\nFOLLOW ME HERE:\n\u25b6 Twitter: https://twitter.com/HollowPoiint\n\u25b6Twitch: https://Twitch.tv/HollowPoiint\n\u25b6 FaceBook: https://Facebook.com/HollowPoiint\n\u25b6 Instagram: http://instagram.com/HollowPoiint\n\nEVERYTHING I use to GAME:\n\u25b6Kontrol Freek:\nhttps://www.kontrolfreek.com/?a_aid=Hollow\n(USE Code \"Hollow\" For 10% OFF)\n\u25b6SCUF Gaming: \nhttps://scufgaming.com/\n(USE Code \"Hollow For OFF)\n\u25b6ASTRO (My HEADSETS)\nhttp://tinyurl.com/hmosn72\n\u25b6GFUEL:\nhttp://gfuel.com/\n(USE Code \"Hollow\" For 10% OFF)\n\u25b6Ironside Computers - GET Your CUSTOM PC HERE:\nhttp://ironsidecomputers.com/page.php?load=index\n\n\n\u266c Music \u266c\nhttps://soundcloud.com/ukiyoau\nhttps://soundcloud.com/jeff-kaale\n\u25b6Music courtesy of www.epidemicsound.com\n\n\u265b Join The Team: \u265b\n\u23aa\u24c8\u24ca\u24b7\u24c8\u24b8\u24c7\u24be\u24b7\u24ba\u23aa ..Not Later.. NOW \n\u25b6Subscribe: http://urlmin.com/subscribe0\n\n\n\u2622 Game On \u2622\n\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\u2013\nVideo Uploaded By HollowPoiint", 
+      "dislike_count": 209, 
+      "duration": 616, 
+      "extraction_method": "most_popular", 
+      "favorite_count": 0, 
+      "image_url": "https://i.ytimg.com/vi/rXfyccUvukc/mqdefault.jpg", 
+      "is_video": true, 
+      "like_count": 3354, 
+      "parse_date": "2016-11-27T22:02:26.551000", 
+      "popularity": 4.7533608761433515, 
+      "publish_date": "2016-11-26T15:33:06", 
+      "publisher": "HollowPoiint", 
+      "publisherId": "UCmp5y07YIV6i2jPX4x82hVQ", 
+      "raw_tags": [
+        "NEW APPLE WATCH", 
+        "NEW APPLE WATCH SERIES 2", 
+        "NEW APPLE WATCH $4", 
+        "BUYING APPLE WATCH FOR $4", 
+        "BUYING APPLE WATCH", 
+        "APPLE WATCH", 
+        "APPLE WATCH $4", 
+        "APPLE", 
+        "WATCH", 
+        "CHEAPEST APPLE WATCH", 
+        "WORLDS CHEAPEST APPLE WATCH", 
+        "BOUGHT NEW APPLE WATCH", 
+        "BLACK FRIDAY", 
+        "VLOG", 
+        "VLOGING"
+      ], 
+      "raw_tags_text": "NEW APPLE WATCH NEW APPLE WATCH SERIES 2 NEW APPLE WATCH $4 BUYING APPLE WATCH FOR $4 BUYING APPLE WATCH APPLE WATCH APPLE WATCH $4 APPLE WATCH CHEAPEST APPLE WATCH WORLDS CHEAPEST APPLE WATCH BOUGHT NEW APPLE WATCH BLACK FRIDAY VLOG VLOGING", 
+      "site_name": "youtube.com", 
+      "srcId": "rXfyccUvukc", 
+      "tagged_date": "2016-11-27T22:02:26.592000", 
+      "tags": [
+        "wearable_tech"
+      ], 
+      "title": "Buying NEW Apple Watch for $4", 
+      "video_id": "583b57f212eca7090ffafa73", 
+      "view_count": 56670, 
+      "youtube_url": "https://youtu.be/rXfyccUvukc"
     }
-   ```
-
-* Run a RESTful API test to test full classification:
-
-   ```
-   curl -H "Content-Type: application/json" -X POST -d '{"data":[{"id":1, "title":"Thinnest Smartphone In The World! (Vivo X5 Max)", "description":"Unboxing and overview of the thinnest smartphone in the world in the Vivo X5 Max. This phone measures in at just 4.75mm thick, beating out the Oppo R5 (4.85mm) for the title of world’s thinnest phone. Places I hang out: Facebook: http://www.facebook.com/phonebuff Google+: http://www.google.com/+PhoneBuff Instagram: http://instagram.com/phonebuff Twitter: http://twitter.com/phonebuff", "raw_tags":["thinnest phone", "vivo x5 max", "vivo", "x5 max", "thinnest phone in the world", "phonebuff"]}]}' http://localhost:5011/full_classification
-   ```
-
-The expected result should be:
-   ```json
-   {
-     "results": [
-       {
-           "full_predictions": [
-              {
-                "category": "Technology",
-                "tags": [
-                  "Smartphones"
-                ]
-              }
-            ],
-          "id": 1
-    	}]
-    }
+  ], 
+  "size": 1, 
+  "start": 0, 
+  "status": 200, 
+  "total": 1772
+}
    ```
 
 
-## How to use the API
+## How to use the Services
 ### How to use the Category Classification API
   - **URL:** `http://{Your host's IP address}:5011/category_classification`
   - **Method:** `POST`
