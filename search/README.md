@@ -5,7 +5,11 @@ The Elasticsearch cluster is currently hosted on the following three instances:
 2. 54.175.64.170
 3. 54.175.64.170
 
+You can take a look at your current index via this URL:
+http://ec2-54-175-64-170.compute-1.amazonaws.com:9200/_plugin/head/
 
+
+# About this Repository
 
 This repository currently contains the Docker files and source code for the `Video Data Index and Search` microservices. The service now supports the following functinality:
 * `reindex`: A full reindexing of all the video data currently in the MongoDB to ElasticSearch. You should **avoid using** this microservice as much as possible, in favor of the incremental index/delete of video data if you are dealing with a small amount of change, e.g., daily update your searchable video index. The reason why you should avoid using this service is simply because of the unnecessary time spent on processing those data that remain the same. **However, this service is fully automated in a way that there would be no down time experienced even if the reindexing process takes a long time.**
