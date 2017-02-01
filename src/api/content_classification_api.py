@@ -17,7 +17,7 @@ app = Flask(__name__)
 app.config['JSON_ADD_STATUS'] = False
 CORS(app)
 
-print 'Current version: %s' % microservice_configs.VERSION
+print 'Current version:', VERSION
 print 'Initializing classifier...'
 topic_classifier = CategoryClassifier(model_subdir=file_paths.topic_models_subdir,
                                       default_return=t.DEFAULT_PREDICTION,
@@ -60,23 +60,24 @@ def classify_video_categories():
         # print result
         return json_response(results=result, status_=200)
     except Exception, e:
+        # import traceback
         # traceback.print_exc()
         return json_response(error='Unable to make predictions.', status_=500)
 
 
 @app.route('/' + CONTENT_CLASSIFICATION_ROUTE, methods = ['POST'])
 def classify_video_contents():
-    print request
+    #print request
     request_body = {}
     try:
         request_body = request.get_json()
-        print request_body
+        #print request_body
 
     except Exception, e:
         #traceback.print_exc()
         return json_response({'error' : 'Cannot parse the input json request.'})
 
-    print request_body
+    #print request_body
 
     category = parse_request_params(request_body, argument=t.INPUT_CATEGORY_FIELD, default=None)
     allowed_categories = content_tags.keys()
@@ -97,17 +98,17 @@ def classify_video_contents():
 
 @app.route('/' + FULL_CLASSIFICATION_ROUTE, methods = ['POST'])
 def classify_video_categories_and_contents():
-    print request
+    #print request
     request_body = {}
     try:
         request_body = request.get_json()
-        print request_body
+        #print request_body
 
     except Exception, e:
         #traceback.print_exc()
         return json_response({'error' : 'Cannot parse the input json request.'})
 
-    print request_body
+    #print request_body
 
     allowed_categories = content_tags.keys()
 
@@ -177,7 +178,6 @@ def classify_video_categories_and_contents():
                 r[t.CONTENT_TAG_PREDICTIONS_FIELD] = tags
 
             result.append(r)
-
             # pred = {category : [] for category in category_predictions}
             #
             # if d_id in id2tags:
@@ -197,6 +197,6 @@ def classify_video_categories_and_contents():
 
         return json_response(results = result, status_=200)
     except Exception, e:
-        # import traceback
-        # traceback.print_exc()
+        import traceback
+        traceback.print_exc()
         return json_response(error = 'Unable to make predictions.', status_=500)

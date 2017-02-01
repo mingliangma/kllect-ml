@@ -3,8 +3,9 @@ from labels import labels
 import scipy
 
 from sklearn.preprocessing import normalize
-from utils.text_cleaning import stemming
 import traceback
+import config
+from utils import text_cleaning
 
 
 class TechologyClassifier(BaseClassifier):
@@ -49,31 +50,28 @@ class TechologyClassifier(BaseClassifier):
     def _transform_field(self, data_df, tag, field):
         vectorizer = self.vectorizers[tag][field]
 
-        data_df_col = [' '.join(x) for x in data_df[field]]
-        return vectorizer.transform(data_df_col)
+        # print field
+        # print data_df[field]
+        return vectorizer.transform(data_df[field])
 
     def _predict_for_each_tag(self, tag, data_df):
-        tfidf_title = self._transform_field(data_df, tag, TechologyClassifier.TITLE_FIELD)
+        tfidf_title_X = self._transform_field(data_df, tag, TechologyClassifier.TITLE_FIELD)
         #print data_df[TechologyClassifier.TITLE_FIELD]
         #print tfidf_title
 
         #print [' '.join(x) for x in data_df[TechologyClassifier.TITLE_FIELD]]
         #print tfidf_title
 
-        tfidf_description = self._transform_field(data_df, tag, TechologyClassifier.DESCRIPTION_FIELD)
+        tfidf_description_X = self._transform_field(data_df, tag, TechologyClassifier.DESCRIPTION_FIELD)
 
         #tfidf_extraction_method = self._transform_field(data_df, tag, TechologyClassifier.EXTRACTION_METHOD_FIELD)
 
-        tfidf_raw_tag = self._transform_field(data_df, tag, TechologyClassifier.RAW_TAG_FIELD)
-
-        w1 = 1
-        w2 = 1
-        w3 = 1
-        w4 = 1
+        tfidf_raw_tag_X = self._transform_field(data_df, tag, TechologyClassifier.RAW_TAG_FIELD)
 
         matrix = scipy.sparse.hstack(
-            [w1 * tfidf_title, w2 * tfidf_description, #w3 * tfidf_extraction_method,
-             w4 * tfidf_raw_tag]).tocsr()
+            [tfidf_title_X,
+             tfidf_description_X,
+             tfidf_raw_tag_X]).tocsr()
 
         tag_classifier = self.classifiers[tag]
         predicted_probs = tag_classifier.predict_proba(matrix)[ : , 1]
@@ -82,21 +80,25 @@ class TechologyClassifier(BaseClassifier):
 
     def _transform_data(self, data):
         for d in data:
-            #print d
+            # print d
 
-            for field in TechologyClassifier.FEATURE_FIELDS:
-                raw_field_data = d[field] if field in d else None
+            d[config.TITLE_FIELD] = text_cleaning.process_text(d.get(config.TITLE_FIELD))
+            # print 'title:', d[config.TITLE_FIELD]
 
-                if raw_field_data:
-                    if field == TechologyClassifier.EXTRACTION_METHOD_FIELD:
-                        d[field] = stemming(' '.join(raw_field_data.strip().split('_')))
-                    elif field == TechologyClassifier.RAW_TAG_FIELD:
-                        d[field] = stemming(' '.join(raw_field_data))
-                    else:
-                        #print field, raw_field_data
-                        d[field] = stemming(raw_field_data)
-                else:
-                    d[field] = []
+            # main_title = (d.get(config.TITLE_FIELD) or '').split('|')[0]
+            # d[config.MAIN_TITLE_FIELD] = ' '.join(text_cleaning.process_text(main_title))
+
+            d[config.DESCRIPTION_FIELD] = '\n'.join(text_cleaning.process_description(d.get(config.DESCRIPTION_FIELD)))
+
+            # print 'description:', d[config.DESCRIPTION_FIELD]
+
+            out_raw_tags = []
+            # for tag in d.get(config.RAW_TAG_FIELD) or []:
+            #     out_raw_tags.append(text_cleaning.process_text(tag))
+            d[config.RAW_TAG_FIELD] = '\n'.join(out_raw_tags)
+            #
+            # print 'raw tags:', d[config.RAW_TAG_FIELD]
+            # print
 
         return data
 
