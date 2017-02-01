@@ -92,7 +92,8 @@ def classify_video_contents():
         #print result
         return json_response(results = result, status_=200)
     except Exception, e:
-        #traceback.print_exc()
+        # import traceback
+        # traceback.print_exc()
         return json_response(error = 'Unable to make predictions.', status_=500)
 
 
@@ -105,7 +106,7 @@ def classify_video_categories_and_contents():
         #print request_body
 
     except Exception, e:
-        #traceback.print_exc()
+        # traceback.print_exc()
         return json_response({'error' : 'Cannot parse the input json request.'})
 
     #print request_body
@@ -197,6 +198,6 @@ def classify_video_categories_and_contents():
 
         return json_response(results = result, status_=200)
     except Exception, e:
-        import traceback
-        traceback.print_exc()
+        # import traceback
+        # traceback.print_exc()
         return json_response(error = 'Unable to make predictions.', status_=500)
