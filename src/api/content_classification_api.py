@@ -17,6 +17,7 @@ app = Flask(__name__)
 app.config['JSON_ADD_STATUS'] = False
 CORS(app)
 
+print 'Current version: %s' % microservice_configs.VERSION
 print 'Initializing classifier...'
 topic_classifier = CategoryClassifier(model_subdir=file_paths.topic_models_subdir,
                                       default_return=t.DEFAULT_PREDICTION,
